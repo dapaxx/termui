@@ -185,10 +185,10 @@ func (i *Input) Text() string {
 
 	if i.IsMultiLine {
 		return strings.Join(i.lines, NEW_LINE)
-	} else {
-		// we should never get here!
-		return i.lines[0]
 	}
+	// we should never get here!
+	return i.lines[0]
+
 }
 
 // AppendLine appends and shows the text and a newline
@@ -210,6 +210,14 @@ func (i *Input) AppendPrompt() {
 		i.addString(i.Prefix + " ")
 	}
 	Render(i)
+}
+
+// Clear empties the line buffer
+func (i *Input) Clear() {
+	i.lines = nil
+	i.cursorLineIndex = 0
+	i.cursorLinePos = 0
+
 }
 
 // Lines returns the slice of strings with the content of the input field. By default lines are separated by \n

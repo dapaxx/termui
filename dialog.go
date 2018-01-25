@@ -81,7 +81,7 @@ func (d *Dialog) Buffer() Buffer {
 	}
 
 	if d.IsCapturing {
-		d.setActiveDialogItem(activeDialogItem)
+		d.SetActiveDialogItem(activeDialogItem)
 	}
 
 	return buf
@@ -208,7 +208,7 @@ func (d *Dialog) activateNextDialogItem() {
 	} else {
 		activeDialogItem = 0
 	}
-	d.setActiveDialogItem(activeDialogItem)
+	d.SetActiveDialogItem(activeDialogItem)
 }
 
 func (d *Dialog) activatePreviosDialogItem() {
@@ -217,5 +217,5 @@ func (d *Dialog) activatePreviosDialogItem() {
 	} else {
 		activeDialogItem = len(d.DialogItems) - 1
 	}
-	d.setActiveDialogItem(activeDialogItem)
+	d.SetActiveDialogItem(activeDialogItem)
 }
